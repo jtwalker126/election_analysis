@@ -38,10 +38,10 @@ The election commission wants to confirm the voter turnout for each county. They
 
 ## Challenge Summary
 An analysis of the county data shows that:
--Three counties contributed to this election
--There were 38,855 votes from Jefferson County, respresenting 10.5% of the total election count.
--There were 306,055 votes from Denver County, representing 82.8% of the total election count.
--There were 24,801 votes from Arapahoe County, representing 6.7% of the total election count.
--Denver County had the largest election turnout.
+- Three counties contributed to this election
+- There were 38,855 votes from Jefferson County, respresenting 10.5% of the total election count.
+- There were 306,055 votes from Denver County, representing 82.8% of the total election count.
+- There were 24,801 votes from Arapahoe County, representing 6.7% of the total election count.
+- Denver County had the largest election turnout.
 
 The analysis for this audit can be found [here](PyPoll_Challenge.py) and the text file summary can be found [here.](analysis/election_analysis.txt)
