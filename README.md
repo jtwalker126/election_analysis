@@ -27,8 +27,21 @@ The analysis of the election shows that:
 - The winner of the election was:
     - Diana DeGette who received 272,892 votes for 73.8% of the total vote.
 
-These results can be found in the elections resuls text file [here.](analysis/election_analysis.txt)
+The analysis can be found [here](PyPoll.py) and a summary of the results can be found in the elections results text file [here.](analysis/election_analysis.txt)
 
 ## Challenge Overview
+The election commission wants to confirm the voter turnout for each county. They are interested in:
+
+1. The number of votes from each county.
+2. The percentage of votes each county contributed to the election.
+3. The county with the highest turnout.
 
 ## Challenge Summary
+An analysis of the county data shows that:
+-Three counties contributed to this election
+-There were 38,855 votes from Jefferson County, respresenting 10.5% of the total election count.
+-There were 306,055 votes from Denver County, representing 82.8% of the total election count.
+-There were 24,801 votes from Arapahoe County, representing 6.7% of the total election count.
+-Denver County had the largest election turnout.
+
+The analysis for this audit can be found [here](PyPoll_Challenge.py) and the text file summary can be found [here.](analysis/election_analysis.txt)
