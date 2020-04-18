@@ -17,6 +17,7 @@
 # count votes correspond to each candidate
 # calculate percentages for candidate
 # declare winner based on highest percentage
+# output data
 
 #add dependencies
 import csv
@@ -28,7 +29,7 @@ file_to_load = os.path.join("Resources", "election_results.csv")
 # Assign variable to save the file to a path
 file_to_save = os.path.join("analysis", "election_analysis.txt")
 
-#initialize variables
+#Initialize variables to be used in analysis
 total_votes=0
 candidate_options=[]
 candidate_votes = {}
@@ -46,6 +47,7 @@ with open(file_to_load, 'r') as election_data:
 
     file_reader = csv.reader(election_data)
 
+    #Read headers
     headers = next(file_reader)
     
     #Print each row in the CSV file
@@ -80,12 +82,14 @@ with open(file_to_load, 'r') as election_data:
     #Save the results to text file
     with open(file_to_save, 'w') as txt_file:
         
-        #Print final vote count to terminal
+        #store total votes and headers in variable
         election_results = (
             f"\nElection Results\n"
             f"----------------------------\n"
             f"Total Votes: {total_votes:,}\n"
             f"----------------------------\n")
+
+        #Print final vote count to terminal
         print(election_results, end="")
 
         # Save the final vote count to the text file
@@ -98,17 +102,22 @@ with open(file_to_load, 'r') as election_data:
 
         #calculate, print, and write county level results
         for county in county_votes:
+            #retrive vote number for given county
             votes = county_votes[county]
 
+            #calculate percentage for county vote
             vote_percentage = float(votes) / float(total_votes) * 100
 
+            #store county results for vote percentage and total votes
             county_results = (f"{county}: {vote_percentage:.1f}% ({votes:,})\n")
 
+            #print county results to terminal
             print(county_results, end="")
 
+            #write county results to txt file
             txt_file.write(county_results)
 
-            # NEED TO WORK ON DETERMINING LARGEST TURNOUT AND WRITING THAT RESULT PLUS CONFIRMING FORMATTING
+            #determine winning county based on county with highest number of votes
             if votes > largest_county_turnout:
                 largest_county_turnout = votes
                 winning_county = county
@@ -127,6 +136,7 @@ with open(file_to_load, 'r') as election_data:
 
         # calculate, print, and write candidate level results
         for candidate in candidate_votes:  
+
             #retrieve vote count for each candidate
             votes = candidate_votes[candidate]
             #calculate percentage
@@ -137,6 +147,7 @@ with open(file_to_load, 'r') as election_data:
 
             #Print candidate results
             print(candidate_results, end="")
+
             #Save the candidate results to text file
             txt_file.write(candidate_results)
 
@@ -153,7 +164,9 @@ with open(file_to_load, 'r') as election_data:
             f"Winning Vote Count: {winning_count:,}\n"
             f"Winning Percentage: {winning_percentage:.1f}%\n"
             f"----------------------------\n")
+
         #Print winning candidate summary
         print(winning_candidate_summary) 
+
         #write winning candidate summary to election results text file     
         txt_file.write(winning_candidate_summary)
